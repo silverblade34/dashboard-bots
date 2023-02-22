@@ -27,7 +27,7 @@ function App() {
   // Renderizado del componente
   return (
     <>
-      <ThemeContext.Provider value={{ setTheme, theme }}>
+      <ThemeContext.Provider value={[setTheme, theme ]}>
         <ThemeProvider theme={themeStyle}>
           <BrowserRouter>
             <Container className={sidebarOpen ? "sidebarState active" : ""}>

@@ -11,6 +11,7 @@ function Estadisticas(){
 
 const ContainerEstadisticas = styled.div`
 /* Estilos aquí */
+height: 100vh;
 `;
 
 

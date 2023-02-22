@@ -45,7 +45,7 @@ export const Light = {
 
     //toggle
     lightbackground: "linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)",
-    lightcheckbox: "#fce100",
+    lightcheckbox: "#D08520",
 }
 
 export const Dark = {
@@ -73,7 +73,7 @@ export const Dark = {
     primary: "rgb(52, 131, 235)",
     bg4: "#9247FC",
     bgtotal: "#21252B",
-    bgtgderecha: "#fff",
+    bgtgderecha: "#746AB0",
     barrascroll: "#A18AFF",
 
     gray900: "#000000",

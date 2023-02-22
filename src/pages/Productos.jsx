@@ -10,5 +10,6 @@ function Productos(){
 
 const ContainerProductos = styled.div`
   /* Estilos aquí */
+  height: 100vh;
 `;
 export default Productos
