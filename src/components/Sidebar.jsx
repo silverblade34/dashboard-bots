@@ -28,7 +28,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 </h3>
             </div>
             {linksArray.map(({ icon, label, to }) => (
-                <div className="LinkContainer" key="label">
+                <div className="LinkContainer" key={label}>
                     <NavLink to={to} className={({ isActive }) => `Links${isActive ? ` active` : ``}`}>
                         <div className="Linkicon">
                             {icon}
@@ -43,7 +43,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
             ))}
             <Divider />
             {secondarylinksArray.map(({ icon, label, to }) => (
-                <div className="LinkContainer" key="label">
+                <div className="LinkContainer" key={label}>
                     <NavLink to={to} className={({ isActive }) => `Links${isActive ? ` active` : ``}`}>
                         <div className="Linkicon">
                             {icon}
@@ -111,12 +111,12 @@ const secondarylinksArray = [
     {
         label: "Configuración",
         icon: <AiOutlineSetting />,
-        to: "/"
+        to: "/configuracion"
     },
     {
         label: "Salir",
         icon: <MdLogout />,
-        to: "/estadisticas"
+        to: "/logout"
     }
 ]
 //#ENDREGION
@@ -162,7 +162,7 @@ const ContainerSidebar = styled.div`
             }
             cursor: pointer;
             transition: all 0.3s;
-            transform: ${({ isOpen }) => (isOpen == true ? `scale(0.9)` : `scale(1.5)`)}
+            transform: ${({ isOpen }) => (isOpen == true ? `scale(0.9)` : `scale(1.1)`)}
         };
         h3{
             display: ${({ isOpen }) => (isOpen == true ? `block` : `none`)};
