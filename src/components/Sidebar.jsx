@@ -193,6 +193,9 @@ const ContainerSidebar = styled.div`
                     svg{
                         color: ${(props) => props.theme.bg4};
                     }
+                    span{
+                        transition: all 0.3s;
+                    }
                 }
             }
         }
