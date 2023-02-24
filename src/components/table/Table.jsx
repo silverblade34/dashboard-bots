@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai"
 
 const columns = [
@@ -20,16 +20,15 @@ function useFilteredRows(rows) {
     const [filterFirstName, setFilterFirstName] = useState('');
 
     const filteredRows = rows.filter((row) =>
-        row.firstName && row.firstName.toLowerCase().includes(filterFirstName.toLowerCase())
+        row.nombre && row.nombre.toLowerCase().includes(filterFirstName.toLowerCase())
     );
 
-    return [filteredRows, setFilterFirstName];
+    return [filteredRows, setFilterFirstName, filterFirstName];
 }
-
 
 export function DataTable() {
     const [tableData, setTableData] = useState([]);
-    const [filteredRows, setFilterFirstName] = useFilteredRows(tableData);
+    const [filteredRows, setFilteredRows,filterFirstName ] = useFilteredRows(tableData);
 
     useEffect(() => {
         fetch('http://192.168.1.38:3000/api/v1/bots')
@@ -44,12 +43,13 @@ export function DataTable() {
                 <input
                     type="text"
                     value={filterFirstName}
-                    onChange={(event) => setFilterFirstName(event.target.value)}
+                    onChange={(event) => setFilteredRows(event.target.value)}
                     placeholder="Filtrar por nombre"
                 />
             </div>
             <DataGrid
                 rows={filteredRows}
+                getRowId={(row) => row.nombre}
                 columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
@@ -58,6 +58,7 @@ export function DataTable() {
         </ContainerTabla>
     );
 }
+
 
 const ContainerTabla = styled.div`
     padding: 20px;
